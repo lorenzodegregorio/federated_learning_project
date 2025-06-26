@@ -1,12 +1,11 @@
-This report investigates the use of federated learning (FL) for image classification on the CIFAR
-100 dataset using the DINO ViT-S/16 transformer model. We evaluate several training strategies, 
-including centralized training, standard Federated Averaging (FedAvg), and a sparse fine-tuning 
-variant of FedAvg designed to reduce communication costs. The sparse variant leverages 
-sensitivity-based gradient masking to update only the most influential parameters during client
-side training. To better understand performance under realistic settings, we simulate both IID and 
-non-IID client distributions by varying the number of classes per client (Nc ∈ \{1, 5, 10, 50\}) and 
-local training steps (J ∈ \{4, 8, 16\}). Our experiments show that sparse fine-tuning achieves 
-competitive accuracy while significantly reducing the update size. We also demonstrate a secure 
-aggregation mechanism to protect client updates, and we compare its output with standard 
-averaging. Overall, the study highlights how combining sparse updates with privacy-preserving 
-aggregation can make FL more efficient and practical for modern vision models.
+Federated Learning Project
+
+The main entry point of this Federated Learning project is the main.ipynb Colab notebook, which serves as the central orchestrator for running experiments and managing the overall pipeline. 
+
+It integrates functionalities from various Python scripts such as data_utils.py, centralized_baseline.py, fl_model_utils.py, secure_aggregation.py, and sparse_utils.py, modesaver.py which handle different components including centralized training, federated model updates, privacy-preserving aggregation, and sparsity and saving models results. 
+
+The project is structured with supporting folders like centralized/, fed_learning/, fed_baseline/, and fed_sparse_models/, sparse_finetune/ and report/ that contain modular implementations of federated training strategies and baseline comparisons and the report of this project. 
+
+After executing experiments through the notebook or scripts, results such as training curves, evaluation metrics, and sparsity plots are saved to the plots/ folder. Final model checkpoints and experiment outputs are stored in 
+final_test_results/.
+
